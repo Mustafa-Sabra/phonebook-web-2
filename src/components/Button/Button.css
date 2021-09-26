@@ -1,0 +1,23 @@
+button {
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  background-color: #766df4;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+button:hover {
+  background-color: #007bff;
+}
+@media (max-width: 330px) {
+  button {
+    height: 28px !important;
+    font-size: 12px;
+  }
+}
+@media (min-width: 330px) and (max-width: 450px) {
+  button {
+    height: 32px !important;
+    font-size: 12px;
+  }
+}

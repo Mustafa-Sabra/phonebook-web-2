@@ -1,0 +1,29 @@
+.login-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-footer span {
+  margin-right: 5px;
+  color: #8b8ca4;
+  font-weight: lighter;
+}
+.login-footer .register-link {
+  color: #766df4;
+  text-decoration: none;
+}
+
+@media (max-width: 330px) {
+  .login-footer {
+    font-size: 10px;
+  }
+}
+@media (min-width: 331px) and (max-width: 450px) {
+  .login-footer {
+    font-size: 12px;
+  }
+}

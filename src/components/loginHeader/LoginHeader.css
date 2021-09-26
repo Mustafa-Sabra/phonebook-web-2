@@ -1,0 +1,33 @@
+.login-header h1 {
+  font-size: 25px;
+  color: rgb(0, 0, 0, 0.7);
+  margin: 30px 0 15px;
+}
+.login-header h4 {
+  color: rgb(139, 130, 130);
+  font-weight: 600;
+}
+
+@media (max-width: 450px) {
+  .login-header h1 {
+    font-size: 20px;
+    margin: 30px 0 10px;
+  }
+  .login-header h4 {
+    font-size: 13px;
+  }
+}
+@media (min-width: 451px) and (max-width: 500px) {
+  .login-header h1 {
+    font-size: 22px;
+    margin: 30px 0 10px;
+  }
+  .login-header h4 {
+    font-size: 15px;
+  }
+}
+@media (min-width: 501px) and (max-width: 768px) {
+  .login-header h1 {
+    margin: 30px 0 10px;
+  }
+}

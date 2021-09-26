@@ -1,0 +1,1 @@
+export const MAP_REG_INFO = "MAP_REG_INFO";

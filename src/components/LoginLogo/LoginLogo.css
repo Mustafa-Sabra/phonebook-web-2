@@ -1,0 +1,10 @@
+.login-logo img {
+  transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 500px) {
+  .login-logo img {
+    width: 85px;
+    height: 85px;
+  }
+}
