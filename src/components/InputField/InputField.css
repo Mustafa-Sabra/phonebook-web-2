@@ -26,6 +26,7 @@
   color: #7952b3 !important;
   opacity: 0.7;
   z-index: 2;
+  transition: all 0.3s ease-in-out;
 }
 
 .form-group .holder input {

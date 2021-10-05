@@ -10,3 +10,7 @@ export {clearLoginRequest} from "./PublicAtions";
 export { getContactsReq } from './Contacts/ContactsActions';
 export {getContactsSuccess} from "./Contacts/ContactsActions";
 export {getContactsFailure} from "./Contacts/ContactsActions";
+
+export { delContactReq } from './Delete/DeleteActions';
+export { delContactSuccess } from './Delete/DeleteActions';
+export { delContactFailure } from './Delete/DeleteActions';

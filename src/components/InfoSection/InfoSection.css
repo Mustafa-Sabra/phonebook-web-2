@@ -1,0 +1,155 @@
+.loading-layer {
+  background-color: #333333;
+  width: calc(100% - 260px - 385px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 30px;
+}
+/*start info-section */
+.info-section {
+  background-color: #333333;
+  width: calc(100% - 260px - 385px);
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  color: #fff;
+  padding: 50px 30px;
+  height: 100%;
+}
+.info-section .header {
+  display: flex;
+  align-items: center;
+}
+.info-section .header .placeholder {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-color: rgb(133, 133, 133);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 25px;
+  font-size: 40px;
+}
+
+.info-section .header > div h4 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.info-section .header > div .options {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.info-section .header > div .options > i {
+  margin-left: 25px;
+  font-size: 16px;
+}
+
+/*start nav*/
+.info-section ul.nav {
+  height: 50px;
+  border-bottom: 1px solid #000;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.info-section ul.nav li {
+  margin-right: 10px;
+  height: 100%;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.info-section ul.nav li:hover {
+  background-color: #212121;
+  border-bottom: 2px solid #fff;
+}
+.info-section ul.nav li.active {
+  border-bottom: 2px solid #0078d4;
+}
+/*end nav*/
+
+/*start contact-info*/
+.info-section .contact-box {
+  border-bottom: 1px solid #000;
+  padding-bottom: 15px;
+}
+.info-section .contact-box p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-section .contact-box p .edit {
+  font-size: 14px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.info-section .contact-box p .edit:hover {
+  background-color: #000;
+  cursor: pointer;
+}
+.info-section .contact-box p .edit i {
+  margin-right: 15px;
+  color: #659eca;
+}
+.info-section .contact-box .contact-info {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.info-section .contact-box .contact-info div {
+  margin-right: 5%;
+  width: 30%;
+  height: 60px;
+  padding: 0 10px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.info-section .contact-box .contact-info div:hover {
+  background-color: #000;
+}
+.info-section .contact-box .contact-info div span {
+  font-size: 14px;
+}
+.info-section .contact-box .contact-info div > span:nth-of-type(2) {
+  color: #659eca;
+}
+/*end contact-info*/
+
+/*start notes*/
+
+.info-section .notes-section h4 {
+  margin: 35px 0 15px;
+  font-size: 12px;
+}
+.info-section .notes-section > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info-section .notes-section p {
+  font-size: 15px;
+  cursor: pointer;
+}
+.info-section .notes-section p:hover {
+  text-decoration: underline;
+  color: #659eca;
+}
+.info-section .notes-section p i {
+  color: #659eca;
+  margin-right: 5px;
+}
+/*end notes*/
+/*end info-section*/

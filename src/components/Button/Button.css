@@ -1,4 +1,4 @@
-button {
+.custom-btn {
   border-radius: 8px;
   border: 0;
   cursor: pointer;
@@ -6,17 +6,17 @@ button {
   color: #fff;
   transition: all 0.3s ease-in-out;
 }
-button:hover {
+.custom-btn:hover {
   background-color: #007bff;
 }
 @media (max-width: 330px) {
-  button {
+  .custom-btn {
     height: 28px !important;
     font-size: 12px;
   }
 }
 @media (min-width: 330px) and (max-width: 450px) {
-  button {
+  .custom-btn {
     height: 32px !important;
     font-size: 12px;
   }

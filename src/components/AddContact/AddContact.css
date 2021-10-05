@@ -1,0 +1,53 @@
+.add-contact {
+  position: absolute;
+  top: 0;
+  background-color: rgba(133, 133, 133, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-contact .card {
+  width: 800px;
+  height: 630px;
+  color: #fcfcfc;
+  display: flex;
+  box-shadow: 1px 1px 5px rgb(73, 73, 73);
+}
+.add-contact .card .left-div {
+  width: 40%;
+  background-color: #212121;
+  padding: 50px 30px 10px;
+}
+.add-contact .card .left-div h3 {
+  font-size: 25px;
+}
+.add-contact .card .left-div p {
+  font-size: 12px;
+  margin: 40px 0;
+}
+.add-contact .card .right-div {
+  width: 60%;
+  background-color: #333333;
+  position: relative;
+  padding: 50px 20px 10px;
+}
+.add-contact .card .right-div .exit-icon {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+.add-contact .card .right-div .exit-icon:hover {
+  background-color: #212121;
+  color: #659eca;
+}

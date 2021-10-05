@@ -8,6 +8,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import axios from 'axios';
 
+import "../node_modules/react-toastify/dist/ReactToastify.css";
+
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 axios.defaults.baseURL = "https://phonebook-be.herokuapp.com";

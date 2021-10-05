@@ -18,13 +18,13 @@ const contactsReducer = (state = initialState, action) =>{
         case GET_CONTACTS_SUCCESS:
             return{
                 loading: false,
-                date : action.payload,
+                data : action.payload,
                 error:""
             }
         case GET_CONTACTS_FAILURE:
             return{
                 loading: false,
-                date : [],
+                data : [],
                 error:action.payload
             }
         default: return state

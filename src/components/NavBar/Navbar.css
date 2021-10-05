@@ -1,0 +1,32 @@
+.navbar {
+  background-color: #0078d4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+  padding: 0 10px;
+  color: #fff;
+}
+
+.navbar div.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 25px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.navbar button {
+  background-color: #0078d4;
+  height: 100%;
+  width: 80px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.navbar button:hover {
+  background-color: #106ebe;
+}
