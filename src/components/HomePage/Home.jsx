@@ -21,7 +21,8 @@ class HomePage extends Component {
     state = {
             data:[],
             colorsArray:["#818181", "#0167b6", "#ec0666", "#006d00"],
-            addNewContact: false,
+            addFormIsOpen: false,
+           
         }
     componentDidMount = async()=>{
         await this.props.disPatch(getContacts());
@@ -38,12 +39,12 @@ class HomePage extends Component {
         clearTokens();
         updateRoutes();
     }
-    addNewContact = ()=>{
+    toggleAddForm = ()=>{
         const state = {...this.state};
-        if(state.addNewContact){
-            state.addNewContact = false;
+        if(state.addFormIsOpen){
+            state.addFormIsOpen = false;
         }else{
-            state.addNewContact = true;
+            state.addFormIsOpen = true;
         }
         this.setState(state);
     }
@@ -82,12 +83,23 @@ class HomePage extends Component {
         }
         
     }
+    updateContacts = (newContactInfo)=>{
+        //colne the state
+        const state = {...this.state};
+        //clone the contacts data
+        const {data} = state;
+        //edit the data 
+        data.push(newContactInfo);
+        state.data = data;
+        //update the state
+        this.setState(state);
+    }
     render() {
         const contactsArray = this.state.data;
          return (
             <div className="home">
                 <Navbar logOut={this.logOut}/>
-                <MenuBar addNewContact={this.addNewContact}/>
+                <MenuBar toggleAddForm={this.toggleAddForm}/>
 
                 <section className="content">
                     <div className="list">
@@ -134,8 +146,8 @@ class HomePage extends Component {
                                     handleDelete = {this.handleDelete} 
                                     {...this.props}/>
 
-                    {this.state.addNewContact?(
-                        <AddContact addNewContact={this.addNewContact}/>
+                    {this.state.addFormIsOpen?(
+                        <AddContact toggleAddForm={this.toggleAddForm} updateContacts={this.updateContacts}/>
                     ):false}
                     
                 </section>

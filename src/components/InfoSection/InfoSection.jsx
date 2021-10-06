@@ -21,7 +21,7 @@ class InfoSection extends Component {
         const currentUrlID = this.props.location.pathname.split("/")[3];
         const currentContact = this.state.contactsArray.find((contact) => contact.id === Number(currentUrlID)) ;
         //console.log(this.state.data);
-         
+        const phoneTypesArray = ["Home", "Mobile", "Business", "Other"]  //type_id = index + 1
         return (
             currentContact?(
             <div className="info-section">
@@ -59,16 +59,18 @@ class InfoSection extends Component {
                                 <span>Email</span>
                                 <span>{currentContact.email}</span>
                             </div>
-                        ):false}
+                        ):false
+                        }
                         
                         {currentContact.phones.map((phone)=>{
-                            return(
+                           return(
+                            phone.value?(
                                 <div className="phone" key={phone.id}>
-                                    <span>Mobile</span>
-                                    <span>{phone.value}</span>
+                                        <span>{phoneTypesArray[phone.type_id - 1]}</span>
+                                        <span>{phone.value}</span>
                                 </div>
-                            )
-                            
+                            ):false
+                           )
                         })}
                         
                     </div>

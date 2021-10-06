@@ -3,10 +3,10 @@ import React from 'react';
 import "./ContactButton.css"
 
 const ContactButton = (props) => {
-     const { height, width, name, addNewContact, iconClass, handleDelete} = props;
+     const { height, width, name, toggleAddForm, iconClass, handleDelete} = props;
     return ( 
                 <button onClick={()=>{
-                                        addNewContact? addNewContact():handleDelete();
+                                        toggleAddForm? toggleAddForm():handleDelete();
                                     }} className="contact-button" 
                         style={{height: height, width: width}}>
                    

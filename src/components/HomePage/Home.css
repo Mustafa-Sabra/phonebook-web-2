@@ -34,7 +34,7 @@
   background-color: #333333;
   color: #fff;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .home .content .contacts-section h3 {
   height: 35px;

@@ -10,7 +10,7 @@ class MenuBar extends Component {
             <div className="menu-bar">
                 <div className="left-div">
                     <i className="fas fa-bars"></i>
-                    <ContactButton addNewContact = {this.props.addNewContact} 
+                    <ContactButton toggleAddForm = {this.props.toggleAddForm} 
                                     name="New contact" 
                                     width="110px" 
                                     height="80%"/>

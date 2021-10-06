@@ -4,6 +4,7 @@
   margin: 15px 0;
   height: 40px;
   padding: 5px 15px;
+  width: 100%;
 }
 .form-group.password-field {
   display: flex;
@@ -23,7 +24,7 @@
   align-items: center;
   cursor: pointer;
   font-size: 15px;
-  color: #7952b3 !important;
+  color: #7952b3;
   opacity: 0.7;
   z-index: 2;
   transition: all 0.3s ease-in-out;
@@ -40,6 +41,11 @@
   z-index: 1;
   color: #7952b3;
   font-size: 16px;
+}
+.form-group .holder input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .form-group.password-field i {
   display: flex;
