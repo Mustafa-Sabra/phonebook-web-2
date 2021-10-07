@@ -1,0 +1,165 @@
+.add-contact {
+  position: absolute;
+  top: 0;
+  background-color: rgba(133, 133, 133, 0.6);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+.add-contact > .card-container {
+  height: 630px;
+  width: 800px;
+  overflow-y: auto;
+}
+.add-contact .card {
+  color: #fcfcfc;
+  display: flex;
+  box-shadow: 1px 1px 5px rgb(73, 73, 73);
+}
+.add-contact .card .left-div {
+  width: 40%;
+  background-color: #212121;
+  padding: 50px 30px 10px;
+}
+.add-contact .card .left-div h3 {
+  font-size: 25px;
+}
+.add-contact .card .left-div p {
+  font-size: 12px;
+  margin: 40px 0;
+}
+.add-contact .card .right-div {
+  width: 60%;
+  background-color: #333333;
+  position: relative;
+  padding: 50px 30px 65px;
+}
+
+.add-contact .card .right-div .exit-icon {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+.add-contact .card .right-div .exit-icon:hover {
+  background-color: #212121;
+  color: #659eca;
+}
+.add-contact .card .right-div .name-section {
+  display: flex;
+  justify-content: space-between;
+}
+.add-contact .card .right-div .name-section .placeholder {
+  background-color: #2e2e2e;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+.add-contact .card .right-div .name-section .input-holder {
+  width: calc(100% - 110px - 20px);
+}
+
+/*start Contact-info-section and work-section */
+.add-contact .card .right-div .contact-info-section,
+.add-contact .card .right-div .work-section {
+  margin: 15px 0;
+}
+.add-contact .card .right-div .contact-info-section h3,
+.add-contact .card .right-div .work-section h3 {
+  margin-bottom: 15px;
+}
+.add-contact .card .right-div .work-section textarea {
+  background-color: #212121;
+  width: 100%;
+  height: 80px;
+  color: #fff;
+  resize: none;
+  padding: 7px;
+}
+/*end Contact-info-section and work-section */
+
+/*start phone-options-section */
+.add-contact .card .right-div ul.phone-options-section {
+  background-color: #333;
+  border: 1px solid #000;
+  list-style: none;
+  position: absolute;
+  bottom: 50px;
+  left: 210px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.add-contact .card .right-div .phone-options-section li.option {
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+}
+.add-contact .card .right-div .phone-options-section li.option:hover {
+  background-color: #212121;
+}
+/*end phone-options-section */
+
+/*start footer-section */
+.add-contact .card .right-div .footer-section {
+  border-top: 1px solid rgb(32, 32, 32);
+  width: calc(100%);
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+.add-contact .card .right-div .footer-section button {
+  height: 35px;
+  border: 0;
+  margin-right: 15px;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 2px;
+}
+.add-contact .card .right-div .footer-section button.submit-btn {
+  background-color: #659eca;
+  color: #000;
+}
+.add-contact .card .right-div .footer-section button.submit-btn:hover {
+  background-color: #b3d6fc;
+}
+.add-contact .card .right-div .footer-section button.discard-btn,
+.add-contact .card .right-div .footer-section button.add-phones-btn {
+  background-color: #212121;
+  color: #fff;
+}
+.add-contact .card .right-div .footer-section button.add-phones-btn {
+  color: #b3d6fc;
+}
+.add-contact .card .right-div .footer-section button.discard-btn:hover,
+.add-contact .card .right-div .footer-section button.add-phones-btn:hover {
+  background-color: #000;
+}
+
+/*end footer-section */

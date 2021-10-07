@@ -53,8 +53,8 @@ class LoginForm extends Component {
        // console.log(getToken("userToken"));
         return (
             <form className="login-form" onSubmit={this.handleSubmit} autoComplete="off">
-                <InputField type={"email"} name={"Email"} value={email} handleChange={this.handleChange}/>
-                <InputField type={"password"} name={"Password"} value = {password} handleChange={this.handleChange}/>
+                <InputField type={"email"} label={"Email"} id={"email"} value={email} handleChange={this.handleChange}/>
+                <InputField type={"password"} label={"Password"} id={"password"} value = {password} handleChange={this.handleChange}/>
                 <Button name={"Login"} width={"100%"} height={"45px"}/>
             </form>
         );

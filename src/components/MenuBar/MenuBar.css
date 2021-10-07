@@ -1,0 +1,23 @@
+.menu-bar {
+  height: 45px;
+  background-color: #212121;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border: 1px solid #000;
+}
+.menu-bar .left-div {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+.menu-bar .left-div i {
+  color: #0078d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}

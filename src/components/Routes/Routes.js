@@ -17,9 +17,11 @@ class Routes extends React.Component {
             this.setState({status:0});
         }*/
         this.forceUpdate();
+        
     }
     render() {
         const token = getToken("userToken");
+        
         if(token){
             return ( 
                 <React.Fragment>

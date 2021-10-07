@@ -2,11 +2,10 @@ export { mapUserInfo } from "./Login/LoginActions";
 
 export {mapRegInfo} from "./Registration/RegActions";
 
-export {postUserRequest} from "./PublicAtions";
-export {postUserSuccess} from "./PublicAtions";
-export {postUserFailure} from "./PublicAtions";
-export {clearLoginRequest} from "./PublicAtions";
+export {postUserRequest, postUserSuccess, postUserFailure, clearLoginRequest} from "./PublicAtions";
 
-export { getContactsReq } from './Contacts/ContactsActions';
-export {getContactsSuccess} from "./Contacts/ContactsActions";
-export {getContactsFailure} from "./Contacts/ContactsActions";
+export { getContactsReq, getContactsSuccess, getContactsFailure} from "./Contacts/ContactsActions";
+
+export { delContactReq, delContactSuccess, delContactFailure } from './Delete/DeleteActions';
+
+export { addContactReq, addContactSuccess, addContactFailure} from './AddContact/AddContactActions';

@@ -46,9 +46,9 @@ class RegisterForm extends Component {
         const {fullName, email, password} = this.state.user;
         return (
             <form className="register-form" onSubmit={this.handleSubmit} autoComplete="off">
-                <InputField type={"text"} name={"Full-Name"} value = {fullName} handleChange={this.handleChange}/>
-                <InputField type={"email"} name={"Email"} value = {email}  handleChange={this.handleChange}/>
-                <InputField type={"password"} name={"Password"} value = {password}    handleChange={this.handleChange}/>
+                <InputField type={"text"} label={"Full-Name"} id={"full_name"} value = {fullName} handleChange={this.handleChange}/>
+                <InputField type={"email"} label={"Email"} id={"email"} value = {email}  handleChange={this.handleChange}/>
+                <InputField type={"password"} label={"Password"} id={"password"} value = {password}    handleChange={this.handleChange}/>
                 <Button name={"Sign Up"} width={"100%"} height={"45px"}/>
                 
             </form>
