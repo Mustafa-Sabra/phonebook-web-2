@@ -31,13 +31,24 @@
   font-size: 12px;
   margin: 40px 0;
 }
+/*start errors container*/
+
+.add-contact .card .left-div .errors-container .err-msg {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.add-contact .card .left-div .errors-container .err-msg i {
+  margin-right: 5px;
+  color: #f00;
+}
+/*end errors container*/
 .add-contact .card .right-div {
   width: 60%;
   background-color: #333333;
   position: relative;
   padding: 50px 30px 65px;
 }
-
 .add-contact .card .right-div .exit-icon {
   color: #fff;
   position: absolute;
@@ -142,11 +153,11 @@
   transition: all 0.2s ease-in-out;
   border-radius: 2px;
 }
-.add-contact .card .right-div .footer-section button.submit-btn {
+.add-contact .card .right-div .footer-section button.submit {
   background-color: #659eca;
   color: #000;
 }
-.add-contact .card .right-div .footer-section button.submit-btn:hover {
+.add-contact .card .right-div .footer-section button.submit:hover {
   background-color: #b3d6fc;
 }
 .add-contact .card .right-div .footer-section button.discard-btn,
