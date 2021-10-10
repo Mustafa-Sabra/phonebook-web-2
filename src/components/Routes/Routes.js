@@ -26,9 +26,9 @@ class Routes extends React.Component {
             return ( 
                 <React.Fragment>
                     <Switch>
-                        <Route path="/home" render={()=><HomePage 
+                        <Route path="/home" render={(props)=><HomePage 
                                                                 updateRoutes={this.updateRoutes} 
-                                                                {...this.props}/>}/>
+                                                                {...props}/>}/>
                         <Route path="/notfound" component={NotFound}/> 
                         <Redirect from="/login" to="/home"/>
                         <Redirect from="/register" to="/home"/>

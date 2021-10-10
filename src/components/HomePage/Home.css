@@ -2,7 +2,7 @@
   position: relative;
 }
 .home .content {
-  height: calc(100vh - 50px - 45px); /*navbar height = 50px */
+  height: calc(100vh - 50px - 50px); /*navbar height = 50px */
   display: flex;
 }
 .home .content .list {
@@ -44,7 +44,13 @@
   padding: 0 15px;
   margin-bottom: 10px;
 }
-
+.home .content .contacts-section .contacts-holder .no-contacts-msg {
+  height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
 .home .content .contacts-section .contacts-holder .contact {
   text-decoration: none;
   color: #fff;

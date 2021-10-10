@@ -94,12 +94,32 @@ class HomePage extends Component {
         //update the state
         this.setState(state);
     }
+    handleSearch = (e)=>{
+        /*  
+            here we will use the store data because, we want to 
+            search over the whole data every time there is a change in the input field,
+            if we used the state data, every time you input or delete a char from the input field
+            it will updata the state so the next time it will search in the updated state 
+            and contacts will be missed and not search over it
+        */
+        const oldContacts = [...this.props.contacts.data];
+        const valueToSearch = e.currentTarget.value;
+        
+        const matchedContacts = oldContacts.filter(contact => contact.name.search(valueToSearch) !== -1);
+
+        this.setState({data:matchedContacts});
+        
+        if(this.state.data.length){
+            this.props.history.push(`/home/contact/${this.state.data[0].id}`);
+        }
+        
+    }
     render() {
         const contactsArray = this.state.data;
          return (
             <div className="home">
                 <Navbar logOut={this.logOut}/>
-                <MenuBar toggleAddForm={this.toggleAddForm}/>
+                <MenuBar toggleAddForm={this.toggleAddForm} handleSearch={this.handleSearch}/>
 
                 <section className="content">
                     <div className="list">
@@ -113,32 +133,36 @@ class HomePage extends Component {
                     <div className="contacts-section">
                         <h3>Your Contacts</h3>
                         <div className="contacts-holder">
-                            {contactsArray.map((contact, index)=>{
-                                return(
-                                    <NavLink    key={index}
-                                                className="contact" 
-                                                to={`/home/contact/${contact.id}`}
-                                                activeStyle={{
-                                                    backgroundColor: "#0078d4",
-                                                }} >
-
-                                         
-                                        <span   className="placeholder" 
-                                                style={{backgroundColor:this.state.colorsArray[index]}}
-                                                >
-                                            {contact.name[0].toUpperCase()}
+                            {(contactsArray.length === 0)?(
+                                <div className="no-contacts-msg">There are no contacts</div>
+                            ):(
+                                contactsArray.map((contact, index)=>{
+                                    return(
+                                        <NavLink    key={index}
+                                                    className="contact" 
+                                                    to={`/home/contact/${contact.id}`}
+                                                    activeStyle={{
+                                                        backgroundColor: "#0078d4",
+                                                    }} >
+    
                                             
-                                        </span>
-                                        <div className="info">
-                                            <h5>{contact.name}</h5>
-                                            <span>{contact.phones[0].value}</span>
-                                        </div>
-                                        
-                                         
-
-                                    </NavLink>  
-                                )
-                            })}
+                                            <span   className="placeholder" 
+                                                    style={{backgroundColor:this.state.colorsArray[index]}}
+                                                    >
+                                                {contact.name[0].toUpperCase()}
+                                                
+                                            </span>
+                                            <div className="info">
+                                                <h5>{contact.name}</h5>
+                                                <span>{contact.phones[0].value}</span>
+                                            </div>
+                                            
+                                             
+    
+                                        </NavLink>  
+                                    )
+                                })
+                            )}
                         </div>
                     </div>
 

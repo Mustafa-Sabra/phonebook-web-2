@@ -1,0 +1,20 @@
+.search-container {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.search-container input[type="text"] {
+  background-color: #333333;
+  outline: none;
+  border: 0;
+  height: 35px;
+  width: 500px;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 15px;
+  color: #fff;
+}
+.search-container input::placeholder {
+  color: rgb(216, 216, 216);
+}

@@ -236,7 +236,7 @@ class AddContact extends Component {
                         <div className="left-div">
                             <h3>New contact</h3>
                             <p>
-                                You can add more information than what you see here, such as address and birthday. Select <span>Add more</span> to bring up more options.
+                                You can add more information than what you see here, such as more phone numbers. Select <span>Add more</span> to bring up more options.
                             </p>
                             <div className="errors-container">
                                 { addContactValidationErrorsKeys.map((error, index) => {
