@@ -1,0 +1,212 @@
+.edit-contact {
+  position: absolute;
+  top: 0;
+  background-color: rgba(133, 133, 133, 0.6);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+.edit-contact > .card-container {
+  height: 600px;
+  width: 800px;
+  overflow-y: auto;
+}
+.edit-contact .card {
+  color: #fcfcfc;
+  display: flex;
+  box-shadow: 1px 1px 5px rgb(73, 73, 73);
+}
+/*start left-div*/
+.edit-contact .card .left-div {
+  width: 40%;
+  background-color: #212121;
+  padding: 50px 30px 10px;
+}
+.edit-contact .card .left-div h3 {
+  font-size: 25px;
+}
+.edit-contact .card .left-div p {
+  font-size: 12px;
+  margin: 40px 0;
+}
+/*end left-div*/
+
+/*start errors container*/
+
+.edit-contact .card .left-div .errors-container .err-msg {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.edit-contact .card .left-div .errors-container .err-msg i {
+  margin-right: 5px;
+  color: #f00;
+}
+/*end errors container*/
+
+/*start eight-div*/
+.edit-contact .card .right-div {
+  width: 60%;
+  background-color: #333333;
+  position: relative;
+  padding: 50px 30px 85px;
+}
+.edit-contact .card .right-div .exit-icon {
+  color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+.edit-contact .card .right-div .exit-icon:hover {
+  background-color: #212121;
+  color: #659eca;
+}
+.edit-contact .card .right-div .name-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.edit-contact .card .right-div .name-section .placeholder {
+  background-color: #2e2e2e;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+.edit-contact .card .right-div .name-section .input-holder {
+  width: calc(100% - 110px - 20px);
+}
+.edit-contact .card .right-div .input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.edit-contact .card .right-div .input-group label {
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.edit-contact .card .right-div .input-group input {
+  width: 100%;
+  height: 30px;
+  background-color: #212121;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  padding: 0 10px;
+}
+/*start Contact-info-section and work-section */
+.edit-contact .card .right-div .contact-info-section,
+.edit-contact .card .right-div .work-section {
+  margin: 15px 0;
+}
+.edit-contact .card .right-div .contact-info-section h3,
+.edit-contact .card .right-div .work-section h3 {
+  margin-bottom: 15px;
+}
+.edit-contact .card .right-div .work-section textarea {
+  background-color: #212121;
+  width: 100%;
+  height: 80px;
+  color: #fff;
+  resize: none;
+  padding: 7px;
+}
+/*end Contact-info-section and work-section */
+
+/*start phone-options-section */
+.edit-contact .card .right-div ul.phone-options-section {
+  background-color: #333;
+  border: 1px solid #000;
+  list-style: none;
+  position: absolute;
+  bottom: 50px;
+  left: 210px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+.edit-contact .card .right-div .phone-options-section li.option {
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+}
+.edit-contact .card .right-div .phone-options-section li.option:hover {
+  background-color: #212121;
+}
+/*end phone-options-section */
+
+/*start footer-section */
+.edit-contact .card .right-div .footer-section {
+  border-top: 1px solid rgb(32, 32, 32);
+  width: calc(100%);
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+}
+.edit-contact .card .right-div .footer-section button,
+.edit-contact .card .right-div .footer-section span {
+  height: 35px;
+  border: 0;
+  margin-right: 15px;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 2px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-contact .card .right-div .footer-section button.submit {
+  background-color: #659eca;
+  color: #000;
+}
+.edit-contact .card .right-div .footer-section button.submit:hover {
+  background-color: #b3d6fc;
+}
+.edit-contact .card .right-div .footer-section span.discard-btn,
+.edit-contact .card .right-div .footer-section span.add-phones-btn {
+  background-color: #212121;
+  color: #fff;
+}
+.edit-contact .card .right-div .footer-section span.add-phones-btn {
+  color: #b3d6fc;
+}
+.edit-contact .card .right-div .footer-section span.discard-btn:hover,
+.edit-contact .card .right-div .footer-section span.add-phones-btn:hover {
+  background-color: #000;
+}
+.edit-contact .card .right-div .footer-section span.add-phones-btn i {
+  margin-right: 5px;
+}
+/*end footer-section */
+/*end right-div*/

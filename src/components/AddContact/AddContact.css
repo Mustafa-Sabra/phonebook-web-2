@@ -31,8 +31,8 @@
   font-size: 12px;
   margin: 40px 0;
 }
-/*start errors container*/
 
+/*start errors container*/
 .add-contact .card .left-div .errors-container .err-msg {
   margin: 0;
   margin-bottom: 15px;
@@ -43,6 +43,7 @@
   color: #f00;
 }
 /*end errors container*/
+
 .add-contact .card .right-div {
   width: 60%;
   background-color: #333333;
@@ -144,7 +145,8 @@
   align-items: center;
   padding: 0 30px;
 }
-.add-contact .card .right-div .footer-section button {
+.add-contact .card .right-div .footer-section button,
+.add-contact .card .right-div .footer-section span {
   height: 35px;
   border: 0;
   margin-right: 15px;
@@ -152,6 +154,10 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border-radius: 2px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .add-contact .card .right-div .footer-section button.submit {
   background-color: #659eca;
@@ -160,17 +166,19 @@
 .add-contact .card .right-div .footer-section button.submit:hover {
   background-color: #b3d6fc;
 }
-.add-contact .card .right-div .footer-section button.discard-btn,
-.add-contact .card .right-div .footer-section button.add-phones-btn {
+.add-contact .card .right-div .footer-section span.discard-btn,
+.add-contact .card .right-div .footer-section span.add-phones-btn {
   background-color: #212121;
   color: #fff;
 }
-.add-contact .card .right-div .footer-section button.add-phones-btn {
+.add-contact .card .right-div .footer-section span.add-phones-btn {
   color: #b3d6fc;
 }
-.add-contact .card .right-div .footer-section button.discard-btn:hover,
-.add-contact .card .right-div .footer-section button.add-phones-btn:hover {
+.add-contact .card .right-div .footer-section span.discard-btn:hover,
+.add-contact .card .right-div .footer-section span.add-phones-btn:hover {
   background-color: #000;
 }
-
+.add-contact .card .right-div .footer-section span.add-phones-btn i {
+  margin-right: 5px;
+}
 /*end footer-section */

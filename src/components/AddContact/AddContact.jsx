@@ -55,9 +55,6 @@ class AddContact extends Component {
         await this.setState(state);
         this.handleNumberOptionsList();
         //update the state
-
-
-
     }
     handleChange = (e) => {
         //clone the state
@@ -146,7 +143,7 @@ class AddContact extends Component {
             await this.props.disPatch(postNewContact({ name, email, notes, phones }));
             if (!this.props.error) {
                 //this function to add the new contact and update the contacts in the home state.
-                this.props.updateContacts(this.props.response);
+                this.props.updateContactsAfterAddition(this.props.response);
             }
 
             //exit the add form
@@ -203,7 +200,8 @@ class AddContact extends Component {
             phones.forEach(phone => {
                 if(phone.value){
                     allValuesAreEmpty = false;
-                }else if(isNaN(phone.value)){
+                }
+                if(isNaN(phone.value)){
                     phoneIsNaN = true;
                 }
             });
@@ -330,10 +328,10 @@ class AddContact extends Component {
 
                                     <div className="footer-section">
                                         <button className="submit">Create</button>
-                                        <button className="discard-btn" onClick={toggleAddForm}>Discard</button>
-                                        <button className="add-phones-btn" onClick={this.handleNumberOptionsList}>
+                                        <span className="discard-btn" onClick={toggleAddForm}>Discard</span>
+                                        <span className="add-phones-btn" onClick={this.handleNumberOptionsList}>
                                             <i className="fas fa-plus"></i> Add more phones
-                                        </button>
+                                        </span>
                                     </div>
                                 </form>
 

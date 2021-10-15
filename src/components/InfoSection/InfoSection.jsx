@@ -22,6 +22,7 @@ class InfoSection extends Component {
         const currentContact = this.state.contactsArray.find((contact) => contact.id === Number(currentUrlID)) ;
         //console.log(this.state.data);
         const phoneTypesArray = ["Home", "Mobile", "Business", "Other"]  //type_id = index + 1
+        const {toggleEditForm} = this.props;
         return (
             currentContact?(
             <div className="info-section">
@@ -48,7 +49,7 @@ class InfoSection extends Component {
                 <div className="contact-box">
                     <p>
                         <span>Contact information</span>
-                        <span className="edit">
+                        <span className="edit" onClick={toggleEditForm}>
                             <i className="fas fa-pencil-alt"></i>Edit contact
                         </span>
                     </p>

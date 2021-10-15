@@ -16,12 +16,14 @@ import InfoSection from '../InfoSection/InfoSection';
 import { deleteContact } from './../../Redux/Delete/DeleteAsyncActions';
 
 import {toast} from "react-toastify";
+import EditContact from './../EditContact/EditContact';
 
 class HomePage extends Component {
     state = {
             data:[],
             colorsArray:["#818181", "#0167b6", "#ec0666", "#006d00"],
             addFormIsOpen: false,
+            editFormIsOpen: false,
            
         }
     componentDidMount = async()=>{
@@ -45,6 +47,15 @@ class HomePage extends Component {
             state.addFormIsOpen = false;
         }else{
             state.addFormIsOpen = true;
+        }
+        this.setState(state);
+    }
+    toggleEditForm = ()=>{
+        const state = {...this.state};
+        if(state.editFormIsOpen){
+            state.editFormIsOpen = false;
+        }else{
+            state.editFormIsOpen = true;
         }
         this.setState(state);
     }
@@ -83,13 +94,32 @@ class HomePage extends Component {
         }
         
     }
-    updateContacts = (newContactInfo)=>{
+    updateContactsAfterAddition = (newContactInfo)=>{
         //colne the state
         const state = {...this.state};
         //clone the contacts data
         const {data} = state;
         //edit the data 
         data.push(newContactInfo);
+        state.data = data;
+        //update the state
+        this.setState(state);
+    }
+    updateContactsAfterEdit = (newContactInfo)=>{
+        //colne the state
+        const state = {...this.state};
+        //clone the contacts data
+        const data = [...state.data];
+        //object keys array
+        const keysArray = Object.keys(newContactInfo);
+        //edit the contact
+        data.forEach((contact)=>{
+            if(contact.id === newContactInfo.id){
+                keysArray.forEach(prop=>{
+                    contact[prop] = newContactInfo[prop]
+                })
+            }
+        })
         state.data = data;
         //update the state
         this.setState(state);
@@ -127,7 +157,6 @@ class HomePage extends Component {
                             <span><i className="fas fa-users"></i></span>
                             <span>Your Contacts</span>
                         </div>
-                        
                     </div>
 
                     <div className="contacts-section">
@@ -167,11 +196,18 @@ class HomePage extends Component {
                     </div>
 
                     <InfoSection colorsArray = {this.state.colorsArray} 
-                                    handleDelete = {this.handleDelete} 
+                                    handleDelete = {this.handleDelete}
+                                    toggleEditForm={this.toggleEditForm}
                                     {...this.props}/>
 
                     {this.state.addFormIsOpen?(
-                        <AddContact toggleAddForm={this.toggleAddForm} updateContacts={this.updateContacts}/>
+                        <AddContact toggleAddForm={this.toggleAddForm} updateContactsAfterAddition={this.updateContactsAfterAddition}/>
+                    ):false}
+
+                    {this.state.editFormIsOpen?(
+                        <EditContact toggleEditForm={this.toggleEditForm}
+                                        updateContactsAfterEdit = {this.updateContactsAfterEdit} 
+                                        {...this.props}/>
                     ):false}
                     
                 </section>
