@@ -9,7 +9,7 @@
   outline: none;
   border: 0;
   height: 35px;
-  width: 500px;
+  width: 100%;
   border-radius: 4px;
   padding: 0 10px;
   font-size: 15px;
@@ -17,4 +17,13 @@
 }
 .search-container input::placeholder {
   color: rgb(216, 216, 216);
+}
+@media (max-width: 650px) {
+  .search-container {
+    width: 300px;
+  }
+  .search-container input[type="text"] {
+    font-size: 12px;
+    height: 30px;
+  }
 }

@@ -17,6 +17,7 @@
   color: #fff;
   padding: 50px 30px;
   height: 100%;
+  overflow-y: auto;
 }
 .info-section .header {
   display: flex;
@@ -129,7 +130,6 @@
 /*end contact-info*/
 
 /*start notes*/
-
 .info-section .notes-section h4 {
   margin: 35px 0 15px;
   font-size: 12px;
@@ -153,3 +153,198 @@
 }
 /*end notes*/
 /*end info-section*/
+
+@media (max-width: 650px) {
+  .loading-layer {
+    background-color: #333333;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px;
+  }
+  /*start info-section */
+  .info-section {
+    width: 100%;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    padding: 20px 15px;
+    height: 60%;
+  }
+
+  .info-section .header .placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .info-section .header > div h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .info-section .header > div .options {
+    width: 100%;
+  }
+  .info-section .header > div .options > i {
+    margin-left: 15px;
+    font-size: 14px;
+  }
+  /*end info-section */
+
+  /*start nav*/
+  .info-section ul.nav {
+    display: none;
+  }
+  /*end nav*/
+
+  /*start contact-info*/
+  .info-section .contact-box {
+    margin-top: 20px;
+    padding-bottom: 10px;
+  }
+  .info-section .contact-box p .edit {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .info-section .contact-box p .edit i {
+    margin-right: 12px;
+  }
+  .info-section .contact-box .contact-info {
+    margin-top: 7px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .info-section .contact-box .contact-info div {
+    margin-right: 0;
+    width: 100%;
+  }
+  .info-section .contact-box .contact-info div:hover {
+    background-color: #000;
+  }
+  .info-section .contact-box .contact-info div span {
+    font-size: 13px;
+  }
+  .info-section .contact-box .contact-info div > span:nth-of-type(2) {
+    color: #659eca;
+  }
+
+  /*start notes*/
+  .info-section .notes-section h4 {
+    margin: 10px 0 15px;
+    font-size: 14px;
+  }
+  .info-section .notes-section > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .info-section .notes-section p {
+    font-size: 12px;
+  }
+  .info-section .notes-section p:hover {
+    text-decoration: underline;
+    color: #659eca;
+  }
+  .info-section .notes-section p i {
+    color: #659eca;
+    margin-right: 5px;
+  }
+
+  /*end notes*/
+  /*end contact-info*/
+}
+
+@media (min-width: 651px) and (max-width: 1024px) {
+  .loading-layer {
+    width: 60%;
+    height: 100%;
+  }
+  /*start info-section */
+  .info-section {
+    width: 60%;
+    height: 100%;
+  }
+
+  .info-section .header .placeholder {
+    width: 70px;
+    height: 70px;
+    font-size: 25px;
+  }
+
+  .info-section .header > div h4 {
+    font-size: 20px;
+  }
+
+  .info-section .header > div .options > i {
+    margin-left: 25px;
+    font-size: 16px;
+  }
+  /*end info-section */
+
+  /*start nav*/
+  .info-section ul.nav li {
+    font-size: 13px;
+  }
+  /*end nav*/
+
+  /*start contact-info*/
+  .info-section .contact-box .contact-info div {
+    margin-right: 0;
+    width: 50%;
+  }
+
+  .info-section .contact-box .contact-info div span {
+    font-size: 13px;
+  }
+
+  /*end contact-info*/
+  /*start notes*/
+  .info-section .notes-section h4 {
+    font-size: 13px;
+  }
+
+  .info-section .notes-section p {
+    font-size: 13px;
+  }
+
+  /*end notes*/
+}
+@media (min-width: 1025px) and (max-width: 1500px) {
+  /*start info-section */
+
+  .info-section .header .placeholder {
+    width: 75px;
+    height: 75px;
+    font-size: 25px;
+  }
+
+  .info-section .header > div h4 {
+    font-size: 21px;
+  }
+
+  /*end info-section */
+
+  /*start contact-info*/
+  .info-section .contact-box .contact-info div {
+    margin-right: 0;
+    width: 50%;
+  }
+
+  .info-section .contact-box .contact-info div span {
+    font-size: 13px;
+  }
+  /*end contact-info*/
+  /*start notes*/
+  .info-section .notes-section h4 {
+    font-size: 13px;
+  }
+
+  .info-section .notes-section p {
+    font-size: 12px;
+  }
+
+  /*end notes*/
+}

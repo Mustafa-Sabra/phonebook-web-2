@@ -330,7 +330,7 @@ class AddContact extends Component {
                                         <button className="submit">Create</button>
                                         <span className="discard-btn" onClick={toggleAddForm}>Discard</span>
                                         <span className="add-phones-btn" onClick={this.handleNumberOptionsList}>
-                                            <i className="fas fa-plus"></i> Add more phones
+                                            <i className="fas fa-plus"></i>  phones
                                         </span>
                                     </div>
                                 </form>

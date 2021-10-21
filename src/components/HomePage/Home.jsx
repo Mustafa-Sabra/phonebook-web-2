@@ -16,14 +16,13 @@ import InfoSection from '../InfoSection/InfoSection';
 import { deleteContact } from './../../Redux/Delete/DeleteAsyncActions';
 
 import {toast} from "react-toastify";
-import EditContact from './../EditContact/EditContact';
 
 class HomePage extends Component {
     state = {
             data:[],
             colorsArray:["#818181", "#0167b6", "#ec0666", "#006d00"],
             addFormIsOpen: false,
-            editFormIsOpen: false,
+            
            
         }
     componentDidMount = async()=>{
@@ -32,10 +31,14 @@ class HomePage extends Component {
         const {data} = this.props.contacts;
         this.setState({data})
 
-        this.props.history.push(`/home/contact/${this.state.data[0].id}`);
+        if(data.length !== 0){
+            this.props.history.push(`/home/contact/${this.state.data[0].id}`);
+        }
+        
 
         this.shuffleColors()
     }
+    
     logOut = ()=>{
         const {updateRoutes} = this.props;
         clearTokens();
@@ -50,15 +53,7 @@ class HomePage extends Component {
         }
         this.setState(state);
     }
-    toggleEditForm = ()=>{
-        const state = {...this.state};
-        if(state.editFormIsOpen){
-            state.editFormIsOpen = false;
-        }else{
-            state.editFormIsOpen = true;
-        }
-        this.setState(state);
-    }
+    
     shuffleColors = ()=>{
         const state = {...this.state};   /* create a copy of the state*/
         let {colorsArray} = state;       /* get a copy of the colorsArray*/
@@ -90,11 +85,13 @@ class HomePage extends Component {
             toast.error(`Can't Delete This Contact 
                          "${this.props.deleteError}"`)
         }else{
-            this.props.history.push(`/home/contact/${this.state.data[0].id}`);
+            if(this.state.data.length !==0){
+                this.props.history.push(`/home/contact/${this.state.data[0].id}`);
+            }
         }
         
     }
-    updateContactsAfterAddition = (newContactInfo)=>{
+    updateContactsAfterAddition = async(newContactInfo)=>{
         //colne the state
         const state = {...this.state};
         //clone the contacts data
@@ -103,7 +100,11 @@ class HomePage extends Component {
         data.push(newContactInfo);
         state.data = data;
         //update the state
-        this.setState(state);
+        await this.setState(state);
+
+        if(data.length !== 0){
+            this.props.history.push(`/home/contact/${this.state.data[0].id}`);
+        }
     }
     updateContactsAfterEdit = (newContactInfo)=>{
         //colne the state
@@ -183,7 +184,7 @@ class HomePage extends Component {
                                             </span>
                                             <div className="info">
                                                 <h5>{contact.name}</h5>
-                                                <span>{contact.phones[0].value}</span>
+                                                <span>{contact.phones.length? contact.phones[0].value:false}</span>
                                             </div>
                                             
                                              
@@ -197,18 +198,15 @@ class HomePage extends Component {
 
                     <InfoSection colorsArray = {this.state.colorsArray} 
                                     handleDelete = {this.handleDelete}
-                                    toggleEditForm={this.toggleEditForm}
+                                    editedContacts = {this.state.data}
+                                    updateContactsAfterEdit = {this.updateContactsAfterEdit} 
                                     {...this.props}/>
 
                     {this.state.addFormIsOpen?(
                         <AddContact toggleAddForm={this.toggleAddForm} updateContactsAfterAddition={this.updateContactsAfterAddition}/>
                     ):false}
 
-                    {this.state.editFormIsOpen?(
-                        <EditContact toggleEditForm={this.toggleEditForm}
-                                        updateContactsAfterEdit = {this.updateContactsAfterEdit} 
-                                        {...this.props}/>
-                    ):false}
+                    
                     
                 </section>
             </div>

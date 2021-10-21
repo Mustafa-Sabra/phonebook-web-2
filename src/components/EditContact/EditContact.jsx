@@ -29,7 +29,7 @@ class EditContact extends Component {
 
         const currentId = this.props.location.pathname.split("/")[3];
 
-        const currentContact = this.state.contactsArray.find(contact => contact.id === Number(currentId));
+        const currentContact = {...this.state.contactsArray.find(contact => contact.id === Number(currentId))};
 
         //update the currentContactInfo object
         const currentContactInfo = { ...this.state.currentContactInfo };
@@ -106,7 +106,7 @@ class EditContact extends Component {
                 break;
             default: return
         }
-        this.setState({ currentContactInfo })
+        this.setState({ currentContactInfo });
     }
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -120,11 +120,6 @@ class EditContact extends Component {
         if (errorsKeysArray.length === 0) { //check if there is an error or not
             const { name, email, notes } = this.state.currentContactInfo;
 
-            let phones = [...this.state.currentContactInfo.phones];
-            phones = phones.map(phone => {
-                return ({ type_id: phone.type_id, value: phone.value });
-            });
-
             const currentId = this.props.location.pathname.split("/")[3];
             //dispatch the post new contact action
             await this.props.disPatch(editContact({ name, email, notes }, currentId));
@@ -134,11 +129,38 @@ class EditContact extends Component {
                 this.props.updateContactsAfterEdit(this.props.responseData);
             }
 
+            const oldPhones = this.state.contactsArray.find(contact => contact.id === Number(currentId)).phones;
+            const newPhones = [...this.state.currentContactInfo.phones];
+
+            if(newPhones.length < oldPhones.length){
+                //phone deleted
+            }else if(newPhones.length > oldPhones.length){
+                //phone addited
+            }else{
+                //phone edited
+            }
+            
+
+            /*
+            phones = phones.map(phone => {
+                return ({ type_id: phone.type_id, value: phone.value });
+            });
+*/
             //exit the add form
             this.props.toggleEditForm();
         }
 
     }
+    /*
+    deletePhone = (oldPhones, newPhones)=>{
+        const oldIds = oldPhones.map(phone => phone.id);
+        const newIds = newPhones.map(phone => phone.id);
+
+        const deletedId = oldIds.find(id => newIds.indexOf(id) === -1);
+
+
+    }
+    */
     nameValidation = () => {
         const errors = { ...this.state.editContactValidationErrors };
         const { name } = this.state.currentContactInfo;
@@ -209,7 +231,7 @@ class EditContact extends Component {
         const { name, email, phones } = this.state.currentContactInfo;
         const phoneTypesArray = ["home", "mobile", "business", "other"]  //type_id = index + 1
         const editContactValidationErrorsKeys = Object.keys(this.state.editContactValidationErrors);
-        console.log(this.state.contactsArray)
+        
         return (
             <div className="edit-contact">
                 <div className="card-container">
@@ -306,7 +328,7 @@ class EditContact extends Component {
                                         <button className="submit">Create</button>
                                         <span className="discard-btn" onClick={toggleEditForm}>Discard</span>
                                         <span className="add-phones-btn" onClick={this.handlePhoneOptionsList}>
-                                            <i className="fas fa-plus"></i> Add more phones
+                                            <i className="fas fa-plus"></i>  phones
                                         </span>
 
                                     </div>
