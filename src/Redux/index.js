@@ -9,3 +9,5 @@ export { getContactsReq, getContactsSuccess, getContactsFailure} from "./Contact
 export { delContactReq, delContactSuccess, delContactFailure } from './Delete/DeleteActions';
 
 export { addContactReq, addContactSuccess, addContactFailure} from './AddContact/AddContactActions';
+
+export { editContactReq, editContactSuccess, editContactFailure } from "./EditContact/EditContactActions";

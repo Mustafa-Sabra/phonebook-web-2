@@ -30,3 +30,14 @@
 .navbar button:hover {
   background-color: #106ebe;
 }
+@media (max-width: 500px) {
+  .navbar {
+    height: 40px;
+  }
+  .navbar div.menu {
+    font-size: 15px;
+  }
+  .navbar button {
+    font-size: 12px;
+  }
+}

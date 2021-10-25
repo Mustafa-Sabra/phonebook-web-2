@@ -72,6 +72,17 @@ input::-webkit-inner-spin-button {
     height: 25px;
   }
   .form-group .holder label {
-    font-size: 12px;
+    font-size: 10px;
+  }
+}
+@media (min-width: 450px) and (max-width: 650px) {
+  .form-group {
+    height: 32px;
+  }
+  .form-group .holder label {
+    font-size: 11px;
+  }
+  .form-group .holder input {
+    font-size: 10px;
   }
 }

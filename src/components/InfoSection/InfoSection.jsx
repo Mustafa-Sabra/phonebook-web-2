@@ -3,19 +3,30 @@ import ContactButton from '../ContactButton/ContactButton';
 
 import { connect } from 'react-redux';
 
+import EditContact from '../EditContact/EditContact';
+
 
 import "./InfoSection.css"
 
 class InfoSection extends Component {
     state={
-        contactsArray:[]
+        contactsArray:[],
+        editFormIsOpen: false,
     }
-    
     componentDidMount=()=>{
         setTimeout(()=>{
             const {contactsArray} = this.props;
             this.setState({contactsArray});
         },1000)
+    }
+    toggleEditForm = ()=>{
+        const state = {...this.state};
+        if(state.editFormIsOpen){
+            state.editFormIsOpen = false;
+        }else{
+            state.editFormIsOpen = true;
+        }
+        this.setState(state);
     }
     render() { 
         const currentUrlID = this.props.location.pathname.split("/")[3];
@@ -48,7 +59,7 @@ class InfoSection extends Component {
                 <div className="contact-box">
                     <p>
                         <span>Contact information</span>
-                        <span className="edit">
+                        <span className="edit" onClick={this.toggleEditForm}>
                             <i className="fas fa-pencil-alt"></i>Edit contact
                         </span>
                     </p>
@@ -87,6 +98,12 @@ class InfoSection extends Component {
                     </div>
                     
                 </div>
+
+                {this.state.editFormIsOpen?(
+                        <EditContact toggleEditForm={this.toggleEditForm}
+                                        updateContactsAfterEdit = {this.props.updateContactsAfterEdit} 
+                                        {...this.props}/>
+                    ):false}
                  
             </div>
             ):(

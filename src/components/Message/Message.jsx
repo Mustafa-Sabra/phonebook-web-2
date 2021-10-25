@@ -6,9 +6,7 @@ import { clearLoginRequest } from '../../Redux';
 import "./Message.css"
 
 const Message = (props) => {
-    const {disPatch} = props;
-    const {type} = props;
-    const {page} = props;
+    const {type, page, disPatch, message} = props;
     if(type === "valid" && page === "sign up"){
         return ( 
             <div className="msg val-msg">
@@ -31,6 +29,11 @@ const Message = (props) => {
             <div className="msg err-msg">
                 <span><i className="fas fa-times-circle" ></i>Uncorrect Email or Password</span>
                 <span>Try Again</span>
+             </div>)
+    } else if(type === "error" && page === "add contact"){
+        return(
+            <div className="msg add-contact-error">
+                <span><i className="fas fa-times-circle" ></i>{message}</span>
              </div>)
     }
 

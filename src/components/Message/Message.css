@@ -22,6 +22,12 @@
 .err-msg span i {
   color: #f00;
 }
+.add-contact-error span {
+  color: #fff;
+}
+.add-contact-error span i {
+  color: #f00;
+}
 @media (max-width: 350px) {
   .msg span {
     font-size: 10px;

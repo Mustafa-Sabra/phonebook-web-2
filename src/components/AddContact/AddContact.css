@@ -31,13 +31,25 @@
   font-size: 12px;
   margin: 40px 0;
 }
+
+/*start errors container*/
+.add-contact .card .left-div .errors-container .err-msg {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.add-contact .card .left-div .errors-container .err-msg i {
+  margin-right: 5px;
+  color: #f00;
+}
+/*end errors container*/
+
 .add-contact .card .right-div {
   width: 60%;
   background-color: #333333;
   position: relative;
   padding: 50px 30px 65px;
 }
-
 .add-contact .card .right-div .exit-icon {
   color: #fff;
   position: absolute;
@@ -133,7 +145,8 @@
   align-items: center;
   padding: 0 30px;
 }
-.add-contact .card .right-div .footer-section button {
+.add-contact .card .right-div .footer-section button,
+.add-contact .card .right-div .footer-section span {
   height: 35px;
   border: 0;
   margin-right: 15px;
@@ -141,25 +154,101 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border-radius: 2px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.add-contact .card .right-div .footer-section button.submit-btn {
+.add-contact .card .right-div .footer-section button.submit {
   background-color: #659eca;
   color: #000;
 }
-.add-contact .card .right-div .footer-section button.submit-btn:hover {
+.add-contact .card .right-div .footer-section button.submit:hover {
   background-color: #b3d6fc;
 }
-.add-contact .card .right-div .footer-section button.discard-btn,
-.add-contact .card .right-div .footer-section button.add-phones-btn {
+.add-contact .card .right-div .footer-section span.discard-btn,
+.add-contact .card .right-div .footer-section span.add-phones-btn {
   background-color: #212121;
   color: #fff;
 }
-.add-contact .card .right-div .footer-section button.add-phones-btn {
+.add-contact .card .right-div .footer-section span.add-phones-btn {
   color: #b3d6fc;
 }
-.add-contact .card .right-div .footer-section button.discard-btn:hover,
-.add-contact .card .right-div .footer-section button.add-phones-btn:hover {
+.add-contact .card .right-div .footer-section span.discard-btn:hover,
+.add-contact .card .right-div .footer-section span.add-phones-btn:hover {
   background-color: #000;
 }
-
+.add-contact .card .right-div .footer-section span.add-phones-btn i {
+  margin-right: 5px;
+}
 /*end footer-section */
+@media (max-width: 650px) {
+  .add-contact > .card-container {
+    width: 100%;
+  }
+  .add-contact .card .left-div {
+    width: 40%;
+    padding: 30px 10px 10px;
+  }
+  .add-contact .card .left-div h3 {
+    font-size: 14px;
+  }
+  .add-contact .card .left-div > p {
+    font-size: 10px;
+  }
+  /*start errors container*/
+  .add-contact .card .left-div .errors-container .err-msg {
+    font-size: 10px;
+  }
+  /*end errors container*/
+  .add-contact .card .right-div {
+    width: 60%;
+    padding: 20px 10px 65px;
+  }
+  .add-contact .card .right-div .name-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .add-contact .card .right-div .name-section .placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  .add-contact .card .right-div .name-section .input-holder {
+    width: 100%;
+  }
+  /*start Contact-info-section and work-section */
+
+  .add-contact .card .right-div .contact-info-section h3,
+  .add-contact .card .right-div .work-section h3 {
+    font-size: 12px;
+  }
+  .add-contact .card .right-div .work-section textarea {
+    font-size: 11px;
+  }
+  /*end Contact-info-section and work-section */
+  /*start phone-options-section */
+  .add-contact .card .right-div ul.phone-options-section {
+    left: 120px;
+    width: 100px;
+  }
+  .add-contact .card .right-div .phone-options-section li.option {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+  /*end phone-options-section */
+  /*start footer-section */
+  .add-contact .card .right-div .footer-section {
+    padding: 0 10px;
+  }
+  .add-contact .card .right-div .footer-section button,
+  .add-contact .card .right-div .footer-section span {
+    height: 25px;
+    margin-right: 10px;
+    padding: 5px 7px;
+    font-size: 12px;
+  }
+
+  /*end footer-section */
+}

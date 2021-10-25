@@ -1,0 +1,29 @@
+.search-container {
+  width: 500px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.search-container input[type="text"] {
+  background-color: #333333;
+  outline: none;
+  border: 0;
+  height: 35px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 15px;
+  color: #fff;
+}
+.search-container input::placeholder {
+  color: rgb(216, 216, 216);
+}
+@media (max-width: 650px) {
+  .search-container {
+    width: 300px;
+  }
+  .search-container input[type="text"] {
+    font-size: 12px;
+    height: 30px;
+  }
+}
