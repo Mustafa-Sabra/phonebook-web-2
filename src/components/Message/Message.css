@@ -1,3 +1,4 @@
+/* start message*/
 .msg {
   margin-top: 40px;
   display: flex;
@@ -28,6 +29,7 @@
 .add-contact-error span i {
   color: #f00;
 }
+/*end message*/
 @media (max-width: 350px) {
   .msg span {
     font-size: 10px;
@@ -49,26 +51,26 @@
   .msg span a {
     font-size: 14px;
   }
-}
-@media (min-width: 501px) and (max-width: 768px) {
-  .msg span {
-    font-size: 13px;
+  @media (min-width: 501px) and (max-width: 768px) {
+    .msg span {
+      font-size: 13px;
+    }
+    .msg span i {
+      font-size: 16px;
+    }
+    .msg span a {
+      font-size: 15px;
+    }
   }
-  .msg span i {
-    font-size: 16px;
-  }
-  .msg span a {
-    font-size: 15px;
-  }
-}
-@media (min-width: 769px) and (max-width: 992px) {
-  .msg span {
-    font-size: 14px;
-  }
-  .msg span i {
-    font-size: 17px;
-  }
-  .msg span a {
-    font-size: 16px;
+  @media (min-width: 769px) and (max-width: 992px) {
+    .msg span {
+      font-size: 14px;
+    }
+    .msg span i {
+      font-size: 17px;
+    }
+    .msg span a {
+      font-size: 16px;
+    }
   }
 }
