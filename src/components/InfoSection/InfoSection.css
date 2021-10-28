@@ -103,12 +103,12 @@
 }
 .info-section .contact-box .contact-info {
   margin-top: 20px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
 }
+
 .info-section .contact-box .contact-info div {
-  margin-right: 5%;
-  width: 30%;
   height: 60px;
   padding: 0 10px;
   line-height: 20px;
@@ -117,6 +117,8 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+
+  overflow-wrap: break-word;
 }
 .info-section .contact-box .contact-info div:hover {
   background-color: #000;
@@ -214,13 +216,9 @@
   }
   .info-section .contact-box .contact-info {
     margin-top: 7px;
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr 1fr;
   }
-  .info-section .contact-box .contact-info div {
-    margin-right: 0;
-    width: 100%;
-  }
+
   .info-section .contact-box .contact-info div:hover {
     background-color: #000;
   }
@@ -255,6 +253,15 @@
 
   /*end notes*/
   /*end contact-info*/
+
+  /*start scrollbar*/
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #659eca;
+  }
+  /*end scrollbar*/
 }
 
 @media (min-width: 651px) and (max-width: 1024px) {
@@ -291,9 +298,8 @@
   /*end nav*/
 
   /*start contact-info*/
-  .info-section .contact-box .contact-info div {
-    margin-right: 0;
-    width: 50%;
+  .info-section .contact-box .contact-info {
+    grid-template-columns: 1fr 1fr;
   }
 
   .info-section .contact-box .contact-info div span {
@@ -328,9 +334,8 @@
   /*end info-section */
 
   /*start contact-info*/
-  .info-section .contact-box .contact-info div {
-    margin-right: 0;
-    width: 50%;
+  .info-section .contact-box .contact-info {
+    column-gap: 10px;
   }
 
   .info-section .contact-box .contact-info div span {
@@ -347,4 +352,9 @@
   }
 
   /*end notes*/
+}
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .info-section {
+    width: 60%;
+  }
 }

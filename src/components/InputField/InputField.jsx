@@ -32,7 +32,7 @@ class InputField extends Component {
             <div className="form-group password-field" style={{backgroundColor:backGroundColor}}>
                         <div className="holder">
                             <label onClick={this.handleClick}
-                                    style = {this.state.pass_isPressed? {color:color,height:"50%", fontSize:"11px"}:{color:color,height:"100%"}}
+                                    style = {this.state.pass_isPressed? {color:color,height:"50%", fontSize:"8px"}:{color:color,height:"100%"}}
                                     htmlFor={id}>{label}</label>
                             <input  required
                                     id={id}
