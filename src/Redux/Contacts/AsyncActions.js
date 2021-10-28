@@ -18,7 +18,7 @@ export const getContacts = ()=>{
             const res = await axios.get("/api/contacts", config);
             dispatch(getContactsSuccess(res.data.data));
         }catch(error){
-            dispatch(getContactsFailure("error"));
+            dispatch(getContactsFailure(error.message));
         }
         
         

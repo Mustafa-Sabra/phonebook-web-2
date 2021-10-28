@@ -15,10 +15,14 @@ class RegisterPage extends  Component {
             <div className="register-page">
                 <div className="register-card" >
                     <div className="container">
+                        <span className="sign-in-label">
+                            <a href="/login">Sign In</a>
+                        </span>
                         <LoginLogo/>
                         <LoginHeader h1_content={"Welcome to GDSC!"}  
                                     h4_content = {"Please enter your information to Sign Up"}/>
                         <RegisterForm/>
+
                         {status === "success"?(<Message type = "valid" page="sign up"/>):false}
                         {status === "failure"?(<Message type = "error" page="sign up"/>):false}
                     </div>

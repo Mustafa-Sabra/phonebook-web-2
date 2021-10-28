@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import { editContact } from "../../Redux/EditContact/EditContactAsyncActions";
 
+import { addNewPhone } from "../../Redux/AddNewPhone/AddPhoneAsyncActions";
+
 import "./EditContact.css"
 
 class EditContact extends Component {
@@ -134,8 +136,10 @@ class EditContact extends Component {
 
             if(newPhones.length < oldPhones.length){
                 //phone deleted
+                //deletePhone(oldPhones, newPhones);
             }else if(newPhones.length > oldPhones.length){
                 //phone addited
+                this.addPhone(oldPhones, newPhones);
             }else{
                 //phone edited
             }
@@ -151,16 +155,22 @@ class EditContact extends Component {
         }
 
     }
-    /*
-    deletePhone = (oldPhones, newPhones)=>{
+    
+    addPhone = (oldPhones, newPhones)=>{
         const oldIds = oldPhones.map(phone => phone.id);
         const newIds = newPhones.map(phone => phone.id);
+        const addedIds = newIds.filter(id => oldIds.indexOf(id) === -1);
+        const addedPhones = newPhones.filter(phone => addedIds.indexOf(phone.id) !== -1);
+        const contact_id = this.props.location.pathname.split("/")[3];
 
-        const deletedId = oldIds.find(id => newIds.indexOf(id) === -1);
-
-
+        this.props.updateInfoAfterAddingNewPhones(addedPhones, contact_id);
+        try{
+            this.props.disPatch(addNewPhone(addedPhones, contact_id));
+        }catch(error){
+            
+        }
     }
-    */
+    
     nameValidation = () => {
         const errors = { ...this.state.editContactValidationErrors };
         const { name } = this.state.currentContactInfo;
@@ -346,7 +356,8 @@ const mapStateToProps = (state) => {
     return {
         contactsArray: state.contactsReq.data,
         error: state.responseOfEditContact.error,
-        responseData: state.responseOfEditContact.data
+        responseData: state.responseOfEditContact.data,
+        addNewPhonesResponseArray:state.addNewPhoneResponse
     }
 }
 const mapDispatchToProps = (dispatch) => {
