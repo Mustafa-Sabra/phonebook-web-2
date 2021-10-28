@@ -10,6 +10,7 @@ import deleteReducer from "./Delete/DeleteReducer";
 import addContactReducer from './AddContact/AddContactReducer';
 import editContactReducer from "./EditContact/EditContactReducer";
 import addPhoneReducer from "./AddNewPhone/AddPhoneReducer";
+import editPhoneReducer from "./EditPhones/EditPhoneReducer";
 
 import thunk from "redux-thunk";
 
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     newContacts: deleteReducer,
     responseOfAddnewContact:addContactReducer,
     responseOfEditContact:editContactReducer,
-    addNewPhoneResponse:addPhoneReducer
+    addNewPhoneResponse:addPhoneReducer,
+    editPhoneResponse:editPhoneReducer,
 
 })
 

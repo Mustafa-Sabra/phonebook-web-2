@@ -4,7 +4,7 @@ import { addPhoneReq, addPhoneSuccess, addPhoneFailure } from "../index"
 import axios from "axios";
 
 export const addNewPhone = (addedPhones, contact_id)=>{
-    return (dispatch)=>{
+    return async(dispatch)=>{
         dispatch(addPhoneReq());
         const token = getToken("userToken");
         const config = {

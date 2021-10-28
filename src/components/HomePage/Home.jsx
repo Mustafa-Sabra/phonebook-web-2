@@ -156,9 +156,19 @@ class HomePage extends Component {
 
         contacts[indexOfContact] = contact;
 
-        this.setState({contacts});
+        this.setState({data: contacts});
 
         
+    }
+    
+    updateInfoAfterEditingPhones = (newPhones, contact_id)=>{
+        const contacts = [...this.state.data];
+        const contact = contacts.find(ele => ele.id === Number(contact_id));
+        contact.phones = newPhones;
+
+        const contactIndex = contacts.indexOf(contact);
+        contacts[contactIndex] = contact;
+        this.setState({data: contacts})
     }
     render() {
         const contactsArray = this.state.data;
@@ -215,7 +225,8 @@ class HomePage extends Component {
                                     handleDelete = {this.handleDelete}
                                     editedContacts = {this.state.data}
                                     updateContactsAfterEdit = {this.updateContactsAfterEdit}
-                                    updateInfoAfterAddingNewPhones={this.updateInfoAfterAddingNewPhones} 
+                                    updateInfoAfterAddingNewPhones={this.updateInfoAfterAddingNewPhones}
+                                    updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
                                     {...this.props}/>
 
                     {this.state.addFormIsOpen?(
