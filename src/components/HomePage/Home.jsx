@@ -145,6 +145,31 @@ class HomePage extends Component {
         }
         
     }
+    updateInfoAfterAddingNewPhones = (newPhonesArray, contact_id)=>{
+        const contacts = [...this.state.data];
+        const contact = contacts.find(ele => ele.id === Number(contact_id));
+        const oldPhones = contact.phones;
+        const newPhones = [...oldPhones, ...newPhonesArray];
+        contact.phones = newPhones;
+        
+        const indexOfContact = contacts.indexOf(contact);
+
+        contacts[indexOfContact] = contact;
+
+        this.setState({data: contacts});
+
+        
+    }
+    
+    updateInfoAfterEditingPhones = (newPhones, contact_id)=>{
+        const contacts = [...this.state.data];
+        const contact = contacts.find(ele => ele.id === Number(contact_id));
+        contact.phones = newPhones;
+
+        const contactIndex = contacts.indexOf(contact);
+        contacts[contactIndex] = contact;
+        this.setState({data: contacts})
+    }
     render() {
         const contactsArray = this.state.data;
          return (
@@ -199,7 +224,9 @@ class HomePage extends Component {
                     <InfoSection colorsArray = {this.state.colorsArray} 
                                     handleDelete = {this.handleDelete}
                                     editedContacts = {this.state.data}
-                                    updateContactsAfterEdit = {this.updateContactsAfterEdit} 
+                                    updateContactsAfterEdit = {this.updateContactsAfterEdit}
+                                    updateInfoAfterAddingNewPhones={this.updateInfoAfterAddingNewPhones}
+                                    updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
                                     {...this.props}/>
 
                     {this.state.addFormIsOpen?(

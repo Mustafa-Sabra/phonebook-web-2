@@ -102,6 +102,8 @@ class InfoSection extends Component {
                 {this.state.editFormIsOpen?(
                         <EditContact toggleEditForm={this.toggleEditForm}
                                         updateContactsAfterEdit = {this.props.updateContactsAfterEdit} 
+                                        updateInfoAfterAddingNewPhones = {this.updateInfoAfterAddingNewPhones}
+                                        updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
                                         {...this.props}/>
                     ):false}
                  

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import "./LoginFooter.css"
 const LoginFooter = () => {
     return ( 
@@ -7,9 +6,8 @@ const LoginFooter = () => {
             <span>
                 Don't have an acount?
             </span>
-            <Link className="register-link" to="/register">Register!</Link>
+            <a href="/register" className="register-link" >Register!</a>
         </div>
      );
 }
- 
 export default LoginFooter;

@@ -4,6 +4,12 @@ import { connect } from "react-redux";
 
 import { editContact } from "../../Redux/EditContact/EditContactAsyncActions";
 
+import { addNewPhone } from "../../Redux/AddNewPhone/AddPhoneAsyncActions";
+
+import { editPhones } from "../../Redux/EditPhones/EditPhoneAsyncActions";
+
+import { toast } from "react-toastify";
+
 import "./EditContact.css"
 
 class EditContact extends Component {
@@ -134,33 +140,49 @@ class EditContact extends Component {
 
             if(newPhones.length < oldPhones.length){
                 //phone deleted
+                //deletePhone(oldPhones, newPhones);
             }else if(newPhones.length > oldPhones.length){
                 //phone addited
+                this.addPhone(oldPhones, newPhones, currentId);
             }else{
-                //phone edited
+                //these are the edited phones
+                const editedPhones = newPhones.filter(phone => {
+                    return(
+                        phone.value !== (oldPhones.find(ele => ele.id === phone.id).value)
+                    )
+                })
+                
+                this.editPhones(editedPhones, newPhones, currentId);
             }
-            
-
-            /*
-            phones = phones.map(phone => {
-                return ({ type_id: phone.type_id, value: phone.value });
-            });
-*/
             //exit the add form
             this.props.toggleEditForm();
         }
 
     }
-    /*
-    deletePhone = (oldPhones, newPhones)=>{
+    
+    addPhone = async(oldPhones, newPhones, contact_id)=>{
         const oldIds = oldPhones.map(phone => phone.id);
         const newIds = newPhones.map(phone => phone.id);
-
-        const deletedId = oldIds.find(id => newIds.indexOf(id) === -1);
-
+        const addedIds = newIds.filter(id => oldIds.indexOf(id) === -1);
+        const addedPhones = newPhones.filter(phone => addedIds.indexOf(phone.id) !== -1);
+        
+        try{
+            await this.props.disPatch(addNewPhone(addedPhones, contact_id));
+            this.props.updateInfoAfterAddingNewPhones(addedPhones, contact_id);
+        }catch(error){
+            toast.error("Phones are Not updated");
+        }
+    }
+    editPhones = async(editedPhones, newPhones, contact_id) =>{
+        try{
+            await this.props.disPatch(editPhones(editedPhones));
+            this.props.updateInfoAfterEditingPhones(newPhones, contact_id);
+        }catch(error){
+            toast.error("Phones are Not updated");
+        }
+        
 
     }
-    */
     nameValidation = () => {
         const errors = { ...this.state.editContactValidationErrors };
         const { name } = this.state.currentContactInfo;
@@ -346,7 +368,9 @@ const mapStateToProps = (state) => {
     return {
         contactsArray: state.contactsReq.data,
         error: state.responseOfEditContact.error,
-        responseData: state.responseOfEditContact.data
+        responseData: state.responseOfEditContact.data,
+        addNewPhonesResponseArray:state.addNewPhoneResponse,
+        addNewPhonesError:state.addNewPhoneResponse,
     }
 }
 const mapDispatchToProps = (dispatch) => {

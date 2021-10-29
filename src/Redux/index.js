@@ -11,3 +11,7 @@ export { delContactReq, delContactSuccess, delContactFailure } from './Delete/De
 export { addContactReq, addContactSuccess, addContactFailure} from './AddContact/AddContactActions';
 
 export { editContactReq, editContactSuccess, editContactFailure } from "./EditContact/EditContactActions";
+
+export { addPhoneReq, addPhoneFailure, addPhoneSuccess } from './AddNewPhone/AddPhoneActions';
+
+export { editPhoneReq, editPhoneSuccess, editPhoneFailure } from "./EditPhones/EditPhoneActions";

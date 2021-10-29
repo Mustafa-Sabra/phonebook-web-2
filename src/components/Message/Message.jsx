@@ -22,6 +22,7 @@ const Message = (props) => {
             <div className="msg err-msg">
                 <span><i className="fas fa-times-circle" ></i>This Email Is Already Exist</span>
                 <span>Try Another Email</span>
+                <span>Or go on and <a href="/login">Sign In</a></span>
              </div>)
 
     }else if(type === "error" && page === "sign in"){
