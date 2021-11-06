@@ -104,6 +104,7 @@ class InfoSection extends Component {
                                         updateContactsAfterEdit = {this.props.updateContactsAfterEdit} 
                                         updateInfoAfterAddingNewPhones = {this.updateInfoAfterAddingNewPhones}
                                         updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
+                                        updateInfoAfterDeletingPhones={this.props.updateInfoAfterDeletingPhones}
                                         {...this.props}/>
                     ):false}
                  

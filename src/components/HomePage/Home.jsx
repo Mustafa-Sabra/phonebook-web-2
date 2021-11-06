@@ -125,6 +125,15 @@ class HomePage extends Component {
         //update the state
         this.setState(state);
     }
+    updateInfoAfterDeletingPhones = (contact_id)=>{
+        const contacts = [...this.state.data];
+        const contact = contacts.find(contact => contact.id === Number(contact_id));
+        const phones = [...contact.phones];
+        const newPhones = phones.filter(phone => phone.value !== "");
+        contact.phones = newPhones;
+
+        this.setState({data:contacts});
+    }
     handleSearch = (e)=>{
         /*  
             here we will use the store data because, we want to 
@@ -227,6 +236,7 @@ class HomePage extends Component {
                                     updateContactsAfterEdit = {this.updateContactsAfterEdit}
                                     updateInfoAfterAddingNewPhones={this.updateInfoAfterAddingNewPhones}
                                     updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
+                                    updateInfoAfterDeletingPhones = {this.updateInfoAfterDeletingPhones}
                                     {...this.props}/>
 
                     {this.state.addFormIsOpen?(

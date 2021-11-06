@@ -15,3 +15,5 @@ export { editContactReq, editContactSuccess, editContactFailure } from "./EditCo
 export { addPhoneReq, addPhoneFailure, addPhoneSuccess } from './AddNewPhone/AddPhoneActions';
 
 export { editPhoneReq, editPhoneSuccess, editPhoneFailure } from "./EditPhones/EditPhoneActions";
+
+export { deletePhoneReq, deletePhoneSuccess, deletePhoneFailure } from "./DeletePhone/DeletePhoneActions";

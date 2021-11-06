@@ -8,6 +8,8 @@ import { addNewPhone } from "../../Redux/AddNewPhone/AddPhoneAsyncActions";
 
 import { editPhones } from "../../Redux/EditPhones/EditPhoneAsyncActions";
 
+import { deletePhones } from './../../Redux/DeletePhone/DeletePhoneAsyncActions';
+
 import { toast } from "react-toastify";
 
 import "./EditContact.css"
@@ -154,6 +156,9 @@ class EditContact extends Component {
                 
                 this.editPhones(editedPhones, newPhones, currentId);
             }
+            const deletedPhones = newPhones.filter(phone => phone.value === "");
+            
+            this.deletePhones(deletedPhones, currentId);
             //exit the add form
             this.props.toggleEditForm();
         }
@@ -177,6 +182,16 @@ class EditContact extends Component {
         try{
             await this.props.disPatch(editPhones(editedPhones));
             this.props.updateInfoAfterEditingPhones(newPhones, contact_id);
+        }catch(error){
+            toast.error("Phones are Not updated");
+        }
+        
+
+    }
+    deletePhones = async(deletedPhones, contact_id) =>{
+        try{
+            await this.props.disPatch(deletePhones(deletedPhones));
+            this.props.updateInfoAfterDeletingPhones( contact_id);
         }catch(error){
             toast.error("Phones are Not updated");
         }
