@@ -111,7 +111,7 @@ class InfoSection extends Component {
             </div>
             ):(
                 <div className="loading-layer">
-                    loading....
+                    
                 </div>
             )
         );
@@ -120,7 +120,7 @@ class InfoSection extends Component {
 
 const mapStateToProps =  (state)=>{
     return{
-        contactsArray:  state.contactsReq.data
+        contactsArray:  state.contactsReq.data,
     }
 }
 
