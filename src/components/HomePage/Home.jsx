@@ -17,6 +17,8 @@ import { deleteContact } from './../../Redux/Delete/DeleteAsyncActions';
 
 import {toast} from "react-toastify";
 
+import Loader from '../Loader/Loader';
+
 class HomePage extends Component {
     state = {
             data:[],
@@ -125,6 +127,15 @@ class HomePage extends Component {
         //update the state
         this.setState(state);
     }
+    updateInfoAfterDeletingPhones = (contact_id)=>{
+        const contacts = [...this.state.data];
+        const contact = contacts.find(contact => contact.id === Number(contact_id));
+        const phones = [...contact.phones];
+        const newPhones = phones.filter(phone => phone.value !== "");
+        contact.phones = newPhones;
+
+        this.setState({data:contacts});
+    }
     handleSearch = (e)=>{
         /*  
             here we will use the store data because, we want to 
@@ -172,78 +183,92 @@ class HomePage extends Component {
     }
     render() {
         const contactsArray = this.state.data;
-         return (
-            <div className="home">
-                <Navbar logOut={this.logOut}/>
-                <MenuBar toggleAddForm={this.toggleAddForm} handleSearch={this.handleSearch}/>
+        
+        {
+            if(this.props.contacts.loading === false){
+                return(
+                    <div className="home">
+                        <Navbar logOut={this.logOut}/>
+                        <MenuBar toggleAddForm={this.toggleAddForm} handleSearch={this.handleSearch}/>
 
-                <section className="content">
-                    <div className="list">
-                        <div className="option">
-                            <span><i className="fas fa-users"></i></span>
-                            <span>Your Contacts</span>
-                        </div>
+                        <section className="content">
+                            <div className="list">
+                                <div className="option">
+                                    <span><i className="fas fa-users"></i></span>
+                                    <span>Your Contacts</span>
+                                </div>
+                            </div>
+
+                            <div className="contacts-section">
+                                <h3>Your Contacts</h3>
+                                <div className="contacts-holder">
+                                    {(contactsArray.length === 0)?(
+                                        <div className="no-contacts-msg">There are no contacts</div>
+                                    ):(
+                                        contactsArray.map((contact, index)=>{
+                                            return(
+                                                <NavLink    key={index}
+                                                            className="contact" 
+                                                            to={`/home/contact/${contact.id}`}
+                                                            activeStyle={{
+                                                                backgroundColor: "#0078d4",
+                                                            }} >
+            
+                                                    
+                                                    <span   className="placeholder" 
+                                                            style={{backgroundColor:this.state.colorsArray[index]}}
+                                                            >
+                                                        {contact.name[0].toUpperCase()}
+                                                        
+                                                    </span>
+                                                    <div className="info">
+                                                        <h5>{contact.name}</h5>
+                                                        <span>{contact.phones.length? contact.phones[0].value:false}</span>
+                                                    </div>
+                                                    
+                                                    
+            
+                                                </NavLink>  
+                                            )
+                                        })
+                                    )}
+                                </div>
+                            </div>
+
+                            <InfoSection colorsArray = {this.state.colorsArray} 
+                                            handleDelete = {this.handleDelete}
+                                            editedContacts = {this.state.data}
+                                            updateContactsAfterEdit = {this.updateContactsAfterEdit}
+                                            updateInfoAfterAddingNewPhones={this.updateInfoAfterAddingNewPhones}
+                                            updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
+                                            updateInfoAfterDeletingPhones = {this.updateInfoAfterDeletingPhones}
+                                            {...this.props}/>
+
+                            {this.state.addFormIsOpen?(
+                                <AddContact toggleAddForm={this.toggleAddForm} updateContactsAfterAddition={this.updateContactsAfterAddition}/>
+                            ):false}
+
+                            
+                            
+                        </section>
                     </div>
-
-                    <div className="contacts-section">
-                        <h3>Your Contacts</h3>
-                        <div className="contacts-holder">
-                            {(contactsArray.length === 0)?(
-                                <div className="no-contacts-msg">There are no contacts</div>
-                            ):(
-                                contactsArray.map((contact, index)=>{
-                                    return(
-                                        <NavLink    key={index}
-                                                    className="contact" 
-                                                    to={`/home/contact/${contact.id}`}
-                                                    activeStyle={{
-                                                        backgroundColor: "#0078d4",
-                                                    }} >
-    
-                                            
-                                            <span   className="placeholder" 
-                                                    style={{backgroundColor:this.state.colorsArray[index]}}
-                                                    >
-                                                {contact.name[0].toUpperCase()}
-                                                
-                                            </span>
-                                            <div className="info">
-                                                <h5>{contact.name}</h5>
-                                                <span>{contact.phones.length? contact.phones[0].value:false}</span>
-                                            </div>
-                                            
-                                             
-    
-                                        </NavLink>  
-                                    )
-                                })
-                            )}
-                        </div>
+                );
+            }else{
+                return(
+                    <div className="loader-page">
+                        <Loader />
                     </div>
-
-                    <InfoSection colorsArray = {this.state.colorsArray} 
-                                    handleDelete = {this.handleDelete}
-                                    editedContacts = {this.state.data}
-                                    updateContactsAfterEdit = {this.updateContactsAfterEdit}
-                                    updateInfoAfterAddingNewPhones={this.updateInfoAfterAddingNewPhones}
-                                    updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
-                                    {...this.props}/>
-
-                    {this.state.addFormIsOpen?(
-                        <AddContact toggleAddForm={this.toggleAddForm} updateContactsAfterAddition={this.updateContactsAfterAddition}/>
-                    ):false}
-
-                    
-                    
-                </section>
-            </div>
-        );
+                )
+            }
+        }
+        
     }
 }
 
 const mapStateToProps = (state)=>{
     return{
         contacts: state.contactsReq,
+
         deleteError:state.newContacts.error
     }
 }

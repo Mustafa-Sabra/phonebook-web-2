@@ -104,13 +104,14 @@ class InfoSection extends Component {
                                         updateContactsAfterEdit = {this.props.updateContactsAfterEdit} 
                                         updateInfoAfterAddingNewPhones = {this.updateInfoAfterAddingNewPhones}
                                         updateInfoAfterEditingPhones={this.updateInfoAfterEditingPhones}
+                                        updateInfoAfterDeletingPhones={this.props.updateInfoAfterDeletingPhones}
                                         {...this.props}/>
                     ):false}
                  
             </div>
             ):(
                 <div className="loading-layer">
-                    loading....
+                    
                 </div>
             )
         );
@@ -119,7 +120,7 @@ class InfoSection extends Component {
 
 const mapStateToProps =  (state)=>{
     return{
-        contactsArray:  state.contactsReq.data
+        contactsArray:  state.contactsReq.data,
     }
 }
 

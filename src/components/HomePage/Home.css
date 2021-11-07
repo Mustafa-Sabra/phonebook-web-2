@@ -102,6 +102,17 @@
 }
 /*end scrollbar*/
 
+/*start loader page*/
+.loader-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*start loader page*/
+
 /*start media query*/
 @media (max-width: 500px) {
   .home .content .contacts-section .contacts-holder .contact {
