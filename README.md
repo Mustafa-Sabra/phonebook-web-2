@@ -3,7 +3,7 @@
 Phonebook is a Cloud Contact App based on React, Redux, JavaScript, HTML, and CSS and a bunch of other technologies in backend.
 
 ## Related Projects
-- [Phonebook Frontend](https://phonebook-sabra.netlify.app/login)
+- [Phonebook Frontend](https://phonebook-sabra.netlify.app)
 - [Phonebook Backend](https://github.com/ahmedhrayyan/phonebook-backend)
 
 # Motivation
