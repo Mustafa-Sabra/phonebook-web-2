@@ -183,8 +183,7 @@ class HomePage extends Component {
     }
     render() {
         const contactsArray = this.state.data;
-        
-        {
+        {// eslint-disable-line
             if(this.props.contacts.loading === false){
                 return(
                     <div className="home">
